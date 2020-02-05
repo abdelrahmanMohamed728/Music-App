@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_layout"
     tools:context=".MainActivity"
     android:orientation="vertical">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_headphones"
+        android:src="@drawable/ic_play"
         android:id="@+id/startIcon"
         android:layout_gravity="center"
         android:layout_weight="1">

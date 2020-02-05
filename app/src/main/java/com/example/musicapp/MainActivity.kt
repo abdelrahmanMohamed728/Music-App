@@ -14,13 +14,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-      var anim =  AnimationUtils.loadAnimation(applicationContext, R.anim.fadein)
-        startIcon.startAnimation(anim)
         object : CountDownTimer(4000,1000){
             override fun onFinish() {
               val intent=Intent(this@MainActivity,
                   HomeActivity::class.java)
                 startActivity(intent)
+                finishAffinity()
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -28,5 +27,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         }.start()
+
     }
 }

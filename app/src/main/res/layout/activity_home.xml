@@ -10,12 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/homeViewPager"
-        android:layout_weight="12">
+        android:layout_weight="15">
     </androidx.viewpager.widget.ViewPager>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black">
+    </View>
    <com.google.android.material.tabs.TabLayout
        android:layout_width="match_parent"
        android:id="@+id/homeTabLayout"
-       android:background="@color/colorAccent"
+      android:backgroundTint="@color/lightBrown"
        android:layout_height="0dp"
        android:layout_weight="1">
    </com.google.android.material.tabs.TabLayout>
