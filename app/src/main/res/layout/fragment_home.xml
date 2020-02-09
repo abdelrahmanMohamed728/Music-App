@@ -4,15 +4,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".View.Home.HomeFragment">
-    <TextView
+    tools:context=".Views.Home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/homelayout"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"></View>
+        <TextView
+            android:layout_width="0dp"
+            android:text="@string/home_fragment"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/theboldfont"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"></TextView>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="40dp"
+                android:src="@drawable/testimage"
+                android:layout_marginRight="10dp">
+            </ImageView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/top_songs"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:fontFamily="@font/coolvetica_compressed_rg"
-        />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coolvetica_compressed_rg"
+            android:text="@string/top_artists"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topChartsArtistsRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"></androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
 </LinearLayout>

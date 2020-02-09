@@ -3,9 +3,11 @@ package com.example.musicapp
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import com.example.musicapp.View.HomeActivity
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.example.musicapp.Api.ApiManager
+import com.example.musicapp.Repos.ChartsRepo
+import com.example.musicapp.Views.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -14,19 +16,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        object : CountDownTimer(4000,1000){
-            override fun onFinish() {
-              val intent=Intent(this@MainActivity,
-                  HomeActivity::class.java)
-                startActivity(intent)
-                finishAffinity()
-            }
+        initSingeltons()
+    }
 
-            override fun onTick(millisUntilFinished: Long) {
+    override fun onSupportNavigateUp() =
+        findNavController(splashFragment).navigateUp()
 
-            }
-
-        }.start()
-
+    private fun initSingeltons() {
+        ApiManager.init()
+        ChartsRepo.init()
     }
 }

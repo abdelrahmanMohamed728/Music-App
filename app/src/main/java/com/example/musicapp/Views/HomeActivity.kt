@@ -1,4 +1,4 @@
-package com.example.musicapp.View
+package com.example.musicapp.Views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
