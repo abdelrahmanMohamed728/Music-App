@@ -6,6 +6,8 @@
     <color name="lightBlack">#100C0C</color>
     <color name="black">#000</color>
     <color name="lightBrown">#927271</color>
-    <color name="darkPurble">#6F7296</color>
+    <color name="purble">#6F7296</color>
+    <color name="lightPurble">#B8BDFA</color>
    <color name="white">#fff</color>
+    <color name="darkBlue">#7497D3</color>
 </resources>

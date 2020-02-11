@@ -1,6 +1,6 @@
 package com.example.musicapp.Models
 
-data class DataXXX(
+data class Track(
     val album: Album,
     val artist: Artist,
     val duration: Int,

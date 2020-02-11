@@ -1,6 +1,6 @@
 package com.example.musicapp.Models
 
 data class Tracks(
-    val `data`: List<DataXXX>,
+    val `data`: List<Track>,
     val total: Int
 )

@@ -5,8 +5,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="top_songs">Top Songs</string>
     <string name="top_artists">Top Artists</string>
-    <string name="home_fragment">Home</string>
+    <string name="home_fragment">Music App</string>
     <string name="add_account">doesn\'t have an account yet ?</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="Most_popular_songs">Most Popular Songs</string>
 </resources>

@@ -13,7 +13,7 @@
         <action
             android:id="@+id/action_splashFragment_to_logInFragment"
             app:destination="@id/logInFragment"
-             />
+            app:enterAnim="@anim/slidein" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"

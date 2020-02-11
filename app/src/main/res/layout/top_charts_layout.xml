@@ -8,19 +8,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
+        android:id="@+id/artistLayout"
         android:orientation="vertical">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="100dp"
+        <ImageView
+            android:layout_width="150dp"
             android:src="@drawable/testimage"
             android:id="@+id/topChartsImg"
-            android:scaleType="centerCrop"
-            android:layout_height="100dp">
-        </de.hdodenhof.circleimageview.CircleImageView>
+            android:scaleType="fitXY"
+            android:layout_height="120dp">
+        </ImageView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:text="1aaaaa"
+            android:gravity="center"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:textColor="@color/black"
