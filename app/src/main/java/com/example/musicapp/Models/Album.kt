@@ -1,5 +1,8 @@
 package com.example.musicapp.Models
 
+import android.os.Parcel
+import android.os.Parcelable
+
 data class Album(
     val artist: Artist,
     val cover: String,
@@ -15,4 +18,25 @@ data class Album(
     val title: String,
     val tracklist: String,
     val type: String
-)
+) : Parcelable {
+
+    override fun describeContents() = 0
+
+    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
+        writeParcelable(artist, 0)
+        writeString(cover)
+        writeString(cover_big)
+        writeString(cover_medium)
+        writeString(cover_small)
+        writeString(cover_xl)
+        writeInt((if (explicit_lyrics) 1 else 0))
+        writeInt(id)
+        writeString(link)
+        writeInt(position)
+        writeString(record_type)
+        writeString(title)
+        writeString(tracklist)
+        writeString(type)
+    }
+
+}

@@ -17,7 +17,22 @@ class Artist (
     val tracklist: String,
     val type: String
 ): Parcelable {
-   override fun writeToParcel(dest: Parcel?, flags: Int) {
+    constructor(parcel: Parcel) : this(
+        parcel.readInt(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readByte() != 0.toByte(),
+        parcel.readString().toString(),
+        parcel.readString().toString()
+    ) {
+    }
+
+    override fun writeToParcel(dest: Parcel?, flags: Int) {
       dest?.writeInt(id)
       dest?.writeString(link)
       dest?.writeString(name)
@@ -34,4 +49,14 @@ class Artist (
    override fun describeContents(): Int {
       return 0
    }
+
+    companion object CREATOR : Parcelable.Creator<Artist> {
+        override fun createFromParcel(parcel: Parcel): Artist {
+            return Artist(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Artist?> {
+            return arrayOfNulls(size)
+        }
+    }
 }

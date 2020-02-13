@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicapp.Models.Track
-import com.example.musicapp.Models.Tracks
 import com.example.musicapp.R
+import com.example.musicapp.Views.SongFragments
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.top_charts_layout.view.*
 import kotlinx.android.synthetic.main.top_charts_layout.view.topChartsImg
 import kotlinx.android.synthetic.main.top_charts_layout.view.topChartsNameTV
 import kotlinx.android.synthetic.main.top_songs_charts_layout.view.*
 
-class HomeSongAdapter(var context : Context, var tracks : List<Track>) :
+class HomeSongAdapter(var context : Context, var tracks : List<Track>,var frag : SongFragments) :
     RecyclerView.Adapter<HomeSongAdapter.HomeSongViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int) =
         HomeSongViewHolder(
@@ -26,7 +25,9 @@ class HomeSongAdapter(var context : Context, var tracks : List<Track>) :
         holder.name.text = tracks[position].title
         Picasso.get().load(tracks[position].album.cover_big).into(holder.imageView)
         bindDuration(tracks[position].duration,holder.duration)
-
+        holder.layout.setOnClickListener {
+           frag.goToSongFragment(position)
+        }
     }
 
     private fun bindDuration(duration: Int, textView: TextView) {
@@ -39,5 +40,6 @@ class HomeSongAdapter(var context : Context, var tracks : List<Track>) :
         val imageView = view.topChartsImg
         val name = view.topChartsNameTV
         val duration = view.songDuration
+        val layout = view.songLayout
     }
 }

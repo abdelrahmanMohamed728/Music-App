@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.musicapp.Api.ApiManager
 import com.example.musicapp.Repos.ArtistRepo
 import com.example.musicapp.Repos.ChartsRepo
+import com.example.musicapp.Repos.SearchRepo
 import com.example.musicapp.Views.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,5 +28,6 @@ class MainActivity : AppCompatActivity() {
         ApiManager.init()
         ChartsRepo.init()
         ArtistRepo.init()
+        SearchRepo.init()
     }
 }

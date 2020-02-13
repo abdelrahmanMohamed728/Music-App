@@ -15,12 +15,14 @@ import com.example.musicapp.R
 import com.example.musicapp.Views.Artist.ArtistFragment
 import com.example.musicapp.Views.Home.ChartsAdapters.HomeArtistAdapter
 import com.example.musicapp.Views.Home.ChartsAdapters.HomeSongAdapter
+import com.example.musicapp.Views.Song.SongFragment
+import com.example.musicapp.Views.SongFragments
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment() , SongFragments {
     lateinit var homeArtistAdapter: HomeArtistAdapter
     lateinit var homeSongAdater: HomeSongAdapter
     override fun onCreateView(
@@ -32,6 +34,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        homePB.visibility = View.VISIBLE
         initViewModel()
         initRecyclerView()
         initObservers()
@@ -46,7 +49,8 @@ class HomeFragment : Fragment() {
         homeSongAdater =
             HomeSongAdapter(
                 context!!,
-                listOf()
+                listOf(),
+                this
             )
         topChartsSongsRV.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -88,7 +92,7 @@ class HomeFragment : Fragment() {
         viewModel?.getTopCharts()
         viewModel?.chartsLiveData?.observe(this, Observer { json ->
             initAdapter(json)
-
+            homePB.visibility = View.GONE
         })
     }
 
@@ -103,5 +107,14 @@ class HomeFragment : Fragment() {
 
     companion object {
         var viewModel: HomeFragmentVM? = null
+    }
+
+    override fun goToSongFragment(index: Int) {
+        var frag = SongFragment()
+        var bundle = Bundle()
+        bundle.putParcelable("track", viewModel?.chartsLiveData?.value?.tracks?.data!![index])
+        frag.arguments = bundle
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.baseLayout,frag , tag)?.addToBackStack("")?.commit()
     }
 }
