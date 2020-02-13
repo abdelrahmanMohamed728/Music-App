@@ -16,16 +16,12 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_song.*
 import java.lang.Exception
 
-/**
- * A simple [Fragment] subclass.
- */
 class SongFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_song, container, false)
     }
 
@@ -38,19 +34,28 @@ class SongFragment : Fragment() {
     }
 
     private fun initData() {
-        Picasso.get().load(viewModel?.songLiveData?.value?.album?.cover_xl).into(songImage)
-        var img = ImageView(context)
-        Picasso.get().load(viewModel?.songLiveData?.value?.artist?.picture_xl).into(img,object : Callback{
-            override fun onSuccess() {
-                songBackground.setBackgroundDrawable(img.drawable)
-            }
+        initImgs()
+        initTxts()
+    }
 
-            override fun onError(e: Exception?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-        })
+    private fun initTxts() {
         artistName.text = viewModel?.songLiveData?.value?.artist?.name
         songName.text = viewModel?.songLiveData?.value?.title
+    }
+
+    private fun initImgs() {
+        Picasso.get().load(viewModel?.songLiveData?.value?.album?.cover_xl).into(songImage)
+        var img = ImageView(context)
+        Picasso.get().load(viewModel?.songLiveData?.value?.artist?.picture_xl)
+            .into(img, object : Callback {
+                override fun onSuccess() {
+                    songBackground.setBackgroundDrawable(img.drawable)
+                }
+
+                override fun onError(e: Exception?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+            })
     }
 
     private fun initViewModel() {
@@ -58,7 +63,11 @@ class SongFragment : Fragment() {
     }
 
     private fun initListeners() {
-        songImage.setCallbacks(object :MusicCoverView.Callbacks{
+        initMusicCover()
+    }
+
+    private fun initMusicCover() {
+        songImage.setCallbacks(object : MusicCoverView.Callbacks {
             override fun onMorphEnd(coverView: MusicCoverView?) {
                 if (MusicCoverView.SHAPE_CIRCLE == coverView?.shape) {
                     coverView?.start()
@@ -78,7 +87,8 @@ class SongFragment : Fragment() {
             }
         }
     }
-    companion object{
-        var viewModel : SongFragmentVM?=null
+
+    companion object {
+        var viewModel: SongFragmentVM? = null
     }
 }
