@@ -11,4 +11,6 @@
     <string name="password">Password</string>
     <string name="Most_popular_songs">Most Popular Songs</string>
     <string name="Top_Albums">Top Albums</string>
+    <string name="failedLogIn">wrong email or password</string>
+    <string name="invalid_email_format">Invalid email</string>
 </resources>

@@ -7,8 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.musicapp.R
 import com.example.musicapp.Views.HomeActivity
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_log_in.*
 
 
@@ -18,15 +21,47 @@ class LogInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_log_in, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        logInBtn.setOnClickListener{
-            startActivity(Intent(activity,HomeActivity::class.java))
-            activity?.finishAffinity()
+        initViewModel()
+        initListeners()
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this).get(LoginFragmentVM::class.java)
+    }
+
+    private fun initListeners() {
+        logInBtn.setOnClickListener {
+            if (viewModel?.isEmailValid(emailET.text.toString())!!) {
+                viewModel?.signIn(emailET.text.toString(), passworddET.text.toString(), this)!!
+                viewModel!!.successfulLogIn.observe(this, Observer {
+                    if (it) {
+                        startActivity(Intent(activity, HomeActivity::class.java))
+                        activity?.finishAffinity()
+                    } else
+                        Snackbar.make(
+                            view!!,
+                            getString(R.string.failedLogIn),
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                })
+
+            } else
+                Snackbar.make(
+                    view!!,
+                    getString(R.string.invalid_email_format),
+                    Snackbar.LENGTH_LONG
+                ).show()
         }
+    }
+
+
+    companion object {
+        var viewModel: LoginFragmentVM? = null
     }
 }

@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -62,5 +63,8 @@ dependencies {
 
     //Music Cover
     implementation 'com.github.andremion:musiccoverview:1.0.0'
+
+    //firebase
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
 
 }
