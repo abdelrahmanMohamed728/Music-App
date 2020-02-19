@@ -17,7 +17,9 @@ import com.example.musicapp.Views.Home.ChartsAdapters.HomeArtistAdapter
 import com.example.musicapp.Views.Home.ChartsAdapters.HomeSongAdapter
 import com.example.musicapp.Views.Song.SongFragment
 import com.example.musicapp.Views.SongFragments
+import kotlinx.android.synthetic.main.fragment_artist.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.android.ext.android.get
 
 /**
  * A simple [Fragment] subclass.
@@ -70,7 +72,7 @@ class HomeFragment : Fragment() , SongFragments {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(HomeFragmentVM::class.java)
+        viewModel = get()
     }
 
     private fun initAdapter(json: JsonResponse) {
@@ -105,10 +107,6 @@ class HomeFragment : Fragment() , SongFragments {
             ?.replace(R.id.baseLayout,frag , tag)?.addToBackStack("")?.commit()
     }
 
-    companion object {
-        var viewModel: HomeFragmentVM? = null
-    }
-
     override fun goToSongFragment(index: Int) {
         var frag = SongFragment()
         var bundle = Bundle()
@@ -116,5 +114,15 @@ class HomeFragment : Fragment() , SongFragments {
         frag.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.baseLayout,frag , tag)?.addToBackStack("")?.commit()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        artistTopSongsRV.adapter = null
+        topChartsSongsRV.adapter = null
+    }
+
+    companion object {
+        var viewModel: HomeFragmentVM? = null
     }
 }

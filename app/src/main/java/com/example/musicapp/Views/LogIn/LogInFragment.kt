@@ -13,6 +13,7 @@ import com.example.musicapp.R
 import com.example.musicapp.Views.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_log_in.*
+import org.koin.android.ext.android.get
 
 
 class LogInFragment : Fragment() {
@@ -32,34 +33,39 @@ class LogInFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(LoginFragmentVM::class.java)
+        viewModel = get()
     }
 
     private fun initListeners() {
         logInBtn.setOnClickListener {
+            logInPB.visibility = View.VISIBLE
             if (viewModel?.isEmailValid(emailET.text.toString())!!) {
                 viewModel?.signIn(emailET.text.toString(), passworddET.text.toString(), this)!!
                 viewModel!!.successfulLogIn.observe(this, Observer {
                     if (it) {
+                        logInPB.visibility = View.GONE
                         startActivity(Intent(activity, HomeActivity::class.java))
                         activity?.finishAffinity()
-                    } else
+                    } else {
+                        logInPB.visibility = View.GONE
                         Snackbar.make(
                             view!!,
                             getString(R.string.failedLogIn),
                             Snackbar.LENGTH_LONG
                         ).show()
+                    }
                 })
 
-            } else
+            } else {
+                logInPB.visibility = View.GONE
                 Snackbar.make(
                     view!!,
                     getString(R.string.invalid_email_format),
                     Snackbar.LENGTH_LONG
                 ).show()
+            }
         }
     }
-
 
     companion object {
         var viewModel: LoginFragmentVM? = null

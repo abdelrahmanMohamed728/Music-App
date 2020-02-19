@@ -37,6 +37,15 @@
             android:inputType="textPassword"
             android:paddingHorizontal="20dp"
             android:textColor="@color/black"></EditText>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:id="@+id/logInPB"
+            android:visibility="gone"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/white"
+            ></ProgressBar>
 
         <Button
             android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import com.example.musicapp.R
 
@@ -22,9 +23,14 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        object : CountDownTimer(4000,1000){
+        object : CountDownTimer(4000, 1000) {
             override fun onFinish() {
-                Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_logInFragment)
+                Navigation.findNavController(view)
+                    .navigate(
+                        R.id.action_splashFragment_to_logInFragment, null, NavOptions.Builder()
+                            .setPopUpTo(R.id.starting_nav_graph, true)
+                            .build()
+                    )
             }
 
             override fun onTick(millisUntilFinished: Long) {

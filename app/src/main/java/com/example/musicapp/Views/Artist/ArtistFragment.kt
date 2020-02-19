@@ -18,6 +18,7 @@ import com.example.musicapp.Views.Song.SongFragment
 import com.example.musicapp.Views.SongFragments
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_artist.*
+import org.koin.android.ext.android.get
 
 /**
  * A simple [Fragment] subclass.
@@ -74,11 +75,7 @@ class ArtistFragment : Fragment(), SongFragments {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(ArtistFragmentVM::class.java)
-    }
-
-    companion object {
-        var viewModel: ArtistFragmentVM? = null
+        viewModel = get()
     }
 
     override fun goToSongFragment(index: Int) {
@@ -91,6 +88,10 @@ class ArtistFragment : Fragment(), SongFragments {
         frag.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.baseLayout, frag, tag)?.addToBackStack("")?.commit()
+    }
+
+    companion object {
+        var viewModel: ArtistFragmentVM? = null
     }
 
 }

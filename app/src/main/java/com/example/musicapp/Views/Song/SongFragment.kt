@@ -14,6 +14,7 @@ import com.example.musicapp.R
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_song.*
+import org.koin.android.ext.android.get
 import java.lang.Exception
 
 class SongFragment : Fragment() {
@@ -59,7 +60,7 @@ class SongFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(SongFragmentVM::class.java)
+        viewModel = get()
     }
 
     private fun initListeners() {
