@@ -1,17 +1,13 @@
 package com.example.musicapp.Repos
 
-import com.example.musicapp.Api.ApiManager
+import com.example.musicapp.Api.WebService
 import com.example.musicapp.Models.JsonResponse
 import io.reactivex.Observable
+import org.koin.core.context.GlobalContext
 
 class ChartsRepo  {
-    companion object {
-         var instance: ChartsRepo? = null
-        fun init() {
-            instance = ChartsRepo()
-        }
-    }
     fun getTopCharts(): Observable<JsonResponse> {
-        return ApiManager.instance!!.getCharts()
+        var apiManager =  GlobalContext.get().koin.get<WebService>()
+        return apiManager.getCharts()
     }
 }

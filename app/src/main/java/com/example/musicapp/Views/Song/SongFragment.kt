@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.lifecycle.ViewModelProviders
 import com.andremion.music.MusicCoverView
-
 import com.example.musicapp.R
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso

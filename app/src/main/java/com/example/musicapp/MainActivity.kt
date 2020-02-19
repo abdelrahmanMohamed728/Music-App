@@ -26,10 +26,6 @@ class MainActivity : AppCompatActivity() {
         findNavController(splashFragment).navigateUp()
 
     private fun initSingeltons() {
-        ApiManager.init()
-        ChartsRepo.init()
-        ArtistRepo.init()
-        SearchRepo.init()
-        FirebaseRepo.init()
+
     }
 }

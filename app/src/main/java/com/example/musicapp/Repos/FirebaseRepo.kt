@@ -1,9 +1,6 @@
 package com.example.musicapp.Repos
 
-import android.app.Activity
-import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 
@@ -30,11 +27,4 @@ class FirebaseRepo {
         return success
     }
 
-    companion object {
-        var instance: FirebaseRepo? = null
-        fun init() {
-            instance = FirebaseRepo()
-
-        }
-    }
 }
