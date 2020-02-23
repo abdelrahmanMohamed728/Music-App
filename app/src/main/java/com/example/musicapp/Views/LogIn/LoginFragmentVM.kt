@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.musicapp.Repos.FirebaseRepo
 import org.koin.core.context.GlobalContext
 
-class LoginFragmentVM : ViewModel() {
+class LoginFragmentVM(var repo : FirebaseRepo) : ViewModel() {
 
     var successfulLogIn = MutableLiveData<Boolean>()
     fun isEmailValid(email : CharSequence) :Boolean {
@@ -14,7 +14,6 @@ class LoginFragmentVM : ViewModel() {
     }
 
     fun signIn(email : String , password : String,fragment: LogInFragment)  {
-        var repo = GlobalContext.get().koin.get<FirebaseRepo>()
         repo.SignIn(email,password)!!
         repo.successLogInLD.observe( fragment, Observer {
            successfulLogIn.value = it

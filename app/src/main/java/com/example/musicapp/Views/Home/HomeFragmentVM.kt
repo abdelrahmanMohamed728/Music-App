@@ -6,13 +6,11 @@ import androidx.lifecycle.ViewModel
 import com.example.musicapp.Models.JsonResponse
 import com.example.musicapp.Repos.ChartsRepo
 import io.reactivex.schedulers.Schedulers
-import org.koin.core.context.GlobalContext
 
-class HomeFragmentVM : ViewModel() {
+class HomeFragmentVM(var repo : ChartsRepo) : ViewModel() {
     var chartsLiveData = MutableLiveData<JsonResponse>()
 
     fun getTopCharts() {
-        var repo = GlobalContext.get().koin.get<ChartsRepo>()
         var observable = repo.getTopCharts()
             ?.subscribeOn(Schedulers.io())
             ?.doOnNext { chartsLiveData.postValue(it) }

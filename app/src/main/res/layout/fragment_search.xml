@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:id="@+id/search_host"
     tools:context=".Views.Search.SearchFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchSV"
@@ -15,14 +20,11 @@
         android:background="@drawable/search_layout"
         app:submitBackground="@color/black"></androidx.appcompat.widget.SearchView>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.google.android.material.tabs.TabLayout>
-
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchRV"
         android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"></androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</FrameLayout>

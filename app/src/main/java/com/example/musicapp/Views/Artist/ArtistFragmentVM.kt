@@ -10,7 +10,7 @@ import com.example.musicapp.Repos.ArtistRepo
 import io.reactivex.schedulers.Schedulers
 import org.koin.core.context.GlobalContext
 
-class ArtistFragmentVM : ViewModel() {
+class ArtistFragmentVM(var repo : ArtistRepo) : ViewModel() {
      var artistLiveData = MutableLiveData<Artist>()
      var topSongsLiveData = MutableLiveData<List<Track>>()
 
@@ -20,7 +20,6 @@ class ArtistFragmentVM : ViewModel() {
       }
 
       fun getTopSongs(){
-          var repo = GlobalContext.get().koin.get<ArtistRepo>()
           var observable = repo.getTopSongs(artistLiveData.value?.id!!)
               ?.subscribeOn(Schedulers.io())
               ?.doOnNext { topSongsLiveData.postValue(it.data)
