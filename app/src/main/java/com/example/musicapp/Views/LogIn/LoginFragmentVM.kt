@@ -1,6 +1,5 @@
 package com.example.musicapp.Views.LogIn
 
-import android.app.Activity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel

@@ -87,7 +87,7 @@ class ArtistFragment : Fragment(), SongFragments {
         bundle.putParcelable("track", song)
         frag.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.baseLayout, frag, tag)?.addToBackStack("")?.commit()
+            ?.replace(R.id.frame_host, frag, tag)?.addToBackStack("")?.commit()
     }
 
     companion object {

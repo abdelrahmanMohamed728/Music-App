@@ -103,7 +103,7 @@ class HomeFragment : Fragment() , SongFragments {
         bundle.putParcelable("artist", viewModel?.chartsLiveData?.value?.artists?.data!![index])
         frag.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.baseLayout,frag , tag)?.addToBackStack("")?.commit()
+            ?.replace(R.id.frame_host,frag , tag)?.addToBackStack("")?.commit()
     }
 
     override fun goToSongFragment(index: Int) {
@@ -112,7 +112,7 @@ class HomeFragment : Fragment() , SongFragments {
         bundle.putParcelable("track", viewModel?.chartsLiveData?.value?.tracks?.data!![index])
         frag.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.baseLayout,frag , tag)?.addToBackStack("")?.commit()
+            ?.replace(R.id.frame_host,frag , tag)?.addToBackStack("")?.commit()
     }
 
     override fun onDestroy() {
