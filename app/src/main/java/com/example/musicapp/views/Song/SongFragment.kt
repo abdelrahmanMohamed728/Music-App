@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Song
+package com.example.musicapp.views.Song
 
 
 import android.os.Bundle
@@ -52,7 +52,7 @@ class SongFragment : Fragment() {
                 }
 
                 override fun onError(e: Exception?) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    TODO("not implemented")
                 }
             })
     }

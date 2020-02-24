@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Search
+package com.example.musicapp.views.Search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,10 +9,9 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicapp.R
-import com.example.musicapp.Views.Home.ChartsAdapters.HomeSongAdapter
-import com.example.musicapp.Views.Home.HomeFragment
-import com.example.musicapp.Views.Song.SongFragment
-import com.example.musicapp.Views.SongFragments
+import com.example.musicapp.views.Home.ChartsAdapters.HomeSongAdapter
+import com.example.musicapp.views.Song.SongFragment
+import com.example.musicapp.views.SongFragments
 import kotlinx.android.synthetic.main.fragment_search.*
 import org.koin.core.context.GlobalContext
 

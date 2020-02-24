@@ -7,24 +7,33 @@ import com.google.firebase.auth.FirebaseAuth
 class FirebaseRepo {
     private lateinit var auth: FirebaseAuth
     var successLogInLD = MutableLiveData<Boolean>()
-    fun SignIn(email: String, password: String): Boolean {
+    var successSignUpLD = MutableLiveData<Boolean>()
+    fun SignIn(email: String, password: String) {
         auth = FirebaseAuth.getInstance()
-        var success = false
         auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener{ task ->
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    success = true
+
                     successLogInLD.value = true
-                }
-                else {
+                } else {
                     successLogInLD.value = false
                     // If sign in fails, display a message to the user.
                     Log.w("myTag", "signInWithEmail:failure", task.exception)
 
                 }
             }
+    }
 
-        return success
+    fun SignOut(email: String, username: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                   successSignUpLD.postValue(true)
+                } else {
+                    successSignUpLD.postValue(false)
+                }
+
+            }
     }
 
 }

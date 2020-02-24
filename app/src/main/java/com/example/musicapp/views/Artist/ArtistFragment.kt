@@ -1,21 +1,19 @@
-package com.example.musicapp.Views.Artist
+package com.example.musicapp.views.Artist
 
 
 import android.os.Bundle
-import android.os.Trace
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicapp.Models.Track
 
 import com.example.musicapp.R
-import com.example.musicapp.Views.Home.ChartsAdapters.HomeSongAdapter
-import com.example.musicapp.Views.Song.SongFragment
-import com.example.musicapp.Views.SongFragments
+import com.example.musicapp.views.Home.ChartsAdapters.HomeSongAdapter
+import com.example.musicapp.views.Song.SongFragment
+import com.example.musicapp.views.SongFragments
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_artist.*
 import org.koin.android.ext.android.get

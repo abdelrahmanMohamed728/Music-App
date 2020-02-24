@@ -5,11 +5,12 @@ import com.example.musicapp.Repos.ArtistRepo
 import com.example.musicapp.Repos.ChartsRepo
 import com.example.musicapp.Repos.FirebaseRepo
 import com.example.musicapp.Repos.SearchRepo
-import com.example.musicapp.Views.Artist.ArtistFragmentVM
-import com.example.musicapp.Views.Home.HomeFragmentVM
-import com.example.musicapp.Views.LogIn.LoginFragmentVM
-import com.example.musicapp.Views.Search.SearchFragmentVM
-import com.example.musicapp.Views.Song.SongFragmentVM
+import com.example.musicapp.views.Artist.ArtistFragmentVM
+import com.example.musicapp.views.Home.HomeFragmentVM
+import com.example.musicapp.views.authentication.login.LoginFragmentVM
+import com.example.musicapp.views.Search.SearchFragmentVM
+import com.example.musicapp.views.Song.SongFragmentVM
+import com.example.musicapp.views.authentication.signup.SignUpFragmentVM
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -17,36 +18,37 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 val viewModelsModule = module {
-    single { ArtistFragmentVM(get()) }
-    single { LoginFragmentVM(get()) }
-    single { SongFragmentVM() }
-    single { HomeFragmentVM(get()) }
-    single { SearchFragmentVM(get()) }
+    factory { ArtistFragmentVM(get()) }
+    factory { LoginFragmentVM(get()) }
+    factory { SongFragmentVM() }
+    factory { HomeFragmentVM(get()) }
+    factory { SearchFragmentVM(get()) }
+    factory { SignUpFragmentVM(get()) }
 }
 
 
 val repoModule = module {
-    single {
+    factory {
         ArtistRepo()
     }
 
-    single {
+    factory {
         ChartsRepo()
     }
 
-    single {
+    factory {
         SearchRepo()
     }
 
-    single(named("BASE_URL")) {
+    factory(named("BASE_URL")) {
         "https://api.deezer.com"
     }
 
-    single {
+    factory {
         FirebaseRepo()
     }
 
-    single {
+    factory {
         Retrofit.Builder()
             .baseUrl(get<String>(named("BASE_URL")))
             .addConverterFactory(GsonConverterFactory.create())

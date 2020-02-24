@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Home.ChartsAdapters
+package com.example.musicapp.views.Home.ChartsAdapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicapp.Models.Track
 import com.example.musicapp.R
-import com.example.musicapp.Views.SongFragments
+import com.example.musicapp.views.SongFragments
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.top_charts_layout.view.topChartsImg
 import kotlinx.android.synthetic.main.top_charts_layout.view.topChartsNameTV

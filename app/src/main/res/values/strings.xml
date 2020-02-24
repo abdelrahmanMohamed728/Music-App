@@ -13,4 +13,6 @@
     <string name="Top_Albums">Top Albums</string>
     <string name="failedLogIn">wrong email or password</string>
     <string name="invalid_email_format">Invalid email</string>
+    <string name="username">Username</string>
+    <string name="invalid_sign_up">invalid data</string>
 </resources>

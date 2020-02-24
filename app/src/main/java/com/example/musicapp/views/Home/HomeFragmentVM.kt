@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Home
+package com.example.musicapp.views.Home
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

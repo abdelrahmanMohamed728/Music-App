@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Artist
+package com.example.musicapp.views.Artist
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,6 @@ import com.example.musicapp.Models.Artist
 import com.example.musicapp.Models.Track
 import com.example.musicapp.Repos.ArtistRepo
 import io.reactivex.schedulers.Schedulers
-import org.koin.core.context.GlobalContext
 
 class ArtistFragmentVM(var repo : ArtistRepo) : ViewModel() {
      var artistLiveData = MutableLiveData<Artist>()

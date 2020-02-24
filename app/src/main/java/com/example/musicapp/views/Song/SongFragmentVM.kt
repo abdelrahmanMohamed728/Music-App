@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Song
+package com.example.musicapp.views.Song
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background"
-    android:orientation="vertical"
-    tools:context=".views.authentication.login.LogInFragment">
+    tools:context=".views.authentication.signup.SignUpFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +28,17 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:id="@+id/passworddET"
+            android:id="@+id/usernameET"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="@string/username"
+            android:paddingHorizontal="20dp"
+            android:textColor="@color/black"></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/passwordET"
             android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_edit_text"
             android:hint="@string/password"
@@ -44,8 +52,7 @@
             android:id="@+id/logInPB"
             android:visibility="gone"
             android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/white"
-            ></ProgressBar>
+            android:indeterminateTint="@color/white"></ProgressBar>
 
         <Button
             android:layout_width="match_parent"
@@ -55,17 +62,9 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/login_button"
             android:fontFamily="@font/lemonmilk_medium"
-            android:id="@+id/logInBtn"
-            android:text="Log In"
+            android:id="@+id/signUpbtn"
+            android:text="Sign Up"
             android:textSize="20sp"></Button>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:textColor="@color/white"
-            android:id="@+id/signUpBtn"
-            android:text="@string/add_account"></TextView>
     </LinearLayout>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.musicapp.Views
+package com.example.musicapp.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -49,4 +49,13 @@ class HomeActivity : AppCompatActivity() {
         searchImageView.setImageResource(R.drawable.ic_search)
         homeTabLayout!!.addTab(homeTabLayout!!.newTab().setCustomView(searchImageView),1)
     }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
 }

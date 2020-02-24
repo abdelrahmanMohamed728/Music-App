@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Splash
+package com.example.musicapp.views.Splash
 
 
 import android.os.Bundle

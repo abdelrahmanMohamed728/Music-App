@@ -1,11 +1,11 @@
-package com.example.musicapp.Views
+package com.example.musicapp.views
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.example.musicapp.Views.Home.HomeFragment
-import com.example.musicapp.Views.Search.SearchFragment
+import com.example.musicapp.views.Home.HomeFragment
+import com.example.musicapp.views.Search.SearchFragment
 
 class HomeViewPagerAdapter(private val myContext: Context, fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 

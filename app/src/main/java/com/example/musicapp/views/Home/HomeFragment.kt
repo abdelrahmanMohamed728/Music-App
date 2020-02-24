@@ -1,4 +1,4 @@
-package com.example.musicapp.Views.Home
+package com.example.musicapp.views.Home
 
 
 import android.os.Bundle
@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicapp.Models.JsonResponse
 
 import com.example.musicapp.R
-import com.example.musicapp.Views.Artist.ArtistFragment
-import com.example.musicapp.Views.Home.ChartsAdapters.HomeArtistAdapter
-import com.example.musicapp.Views.Home.ChartsAdapters.HomeSongAdapter
-import com.example.musicapp.Views.Song.SongFragment
-import com.example.musicapp.Views.SongFragments
+import com.example.musicapp.views.Artist.ArtistFragment
+import com.example.musicapp.views.Home.ChartsAdapters.HomeArtistAdapter
+import com.example.musicapp.views.Home.ChartsAdapters.HomeSongAdapter
+import com.example.musicapp.views.Song.SongFragment
+import com.example.musicapp.views.SongFragments
 import kotlinx.android.synthetic.main.fragment_artist.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.ext.android.get

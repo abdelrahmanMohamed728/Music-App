@@ -1,4 +1,4 @@
-package com.example.musicapp.Views
+package com.example.musicapp.views
 
 interface SongFragments  {
     fun goToSongFragment(index :Int)

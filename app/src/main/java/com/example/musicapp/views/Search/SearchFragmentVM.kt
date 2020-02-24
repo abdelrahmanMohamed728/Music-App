@@ -1,9 +1,8 @@
-package com.example.musicapp.Views.Search
+package com.example.musicapp.views.Search
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.musicapp.Models.Artist
 import com.example.musicapp.Models.Track
 import com.example.musicapp.Repos.SearchRepo
 import io.reactivex.schedulers.Schedulers

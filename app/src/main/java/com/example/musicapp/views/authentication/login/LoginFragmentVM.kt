@@ -1,10 +1,9 @@
-package com.example.musicapp.Views.LogIn
+package com.example.musicapp.views.authentication.login
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.example.musicapp.Repos.FirebaseRepo
-import org.koin.core.context.GlobalContext
 
 class LoginFragmentVM(var repo : FirebaseRepo) : ViewModel() {
 
@@ -19,4 +18,5 @@ class LoginFragmentVM(var repo : FirebaseRepo) : ViewModel() {
            successfulLogIn.value = it
         })
     }
+
 }

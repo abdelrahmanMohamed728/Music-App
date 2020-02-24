@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Views.Splash.SplashFragment">
+    tools:context=".views.Splash.SplashFragment">
 
     <ImageView
         android:layout_width="wrap_content"

@@ -6,7 +6,7 @@
     android:id="@+id/frame_host"
     android:background="@drawable/homelayout"
     android:orientation="vertical"
-    tools:context=".Views.Home.HomeFragment">
+    tools:context=".views.Home.HomeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
