@@ -4,8 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 
-class FirebaseRepo {
-    private lateinit var auth: FirebaseAuth
+class FirebaseRepo(var auth: FirebaseAuth) {
     var successLogInLD = MutableLiveData<Boolean>()
     var successSignUpLD = MutableLiveData<Boolean>()
     fun SignIn(email: String, password: String) {
@@ -25,6 +24,7 @@ class FirebaseRepo {
     }
 
     fun SignOut(email: String, username: String, password: String) {
+
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

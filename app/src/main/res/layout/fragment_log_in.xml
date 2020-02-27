@@ -63,9 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/white"
-            android:id="@+id/signUpBtn"
+            android:id="@+id/noAccountBtn"
             android:text="@string/add_account"></TextView>
     </LinearLayout>
 </LinearLayout>

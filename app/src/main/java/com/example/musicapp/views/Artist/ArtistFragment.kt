@@ -39,6 +39,11 @@ class ArtistFragment : Fragment(), SongFragments {
         extractData()
         initRecycler()
         initObservers()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        artistLayout.setOnClickListener {  }
     }
 
     private fun initRecycler() {

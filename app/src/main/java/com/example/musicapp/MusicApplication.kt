@@ -1,6 +1,7 @@
 package com.example.musicapp
 
 import android.app.Application
+import com.example.musicapp.Koin_DI.firebaseModule
 import com.example.musicapp.Koin_DI.repoModule
 import com.example.musicapp.Koin_DI.viewModelsModule
 import org.koin.android.ext.koin.androidContext
@@ -11,7 +12,7 @@ class MusicApplication :Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MusicApplication)
-            modules(listOf(viewModelsModule, repoModule))
+            modules(listOf(viewModelsModule, repoModule, firebaseModule))
         }
     }
 }

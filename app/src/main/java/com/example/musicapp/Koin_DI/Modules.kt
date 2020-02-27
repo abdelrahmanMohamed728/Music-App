@@ -11,6 +11,7 @@ import com.example.musicapp.views.authentication.login.LoginFragmentVM
 import com.example.musicapp.views.Search.SearchFragmentVM
 import com.example.musicapp.views.Song.SongFragmentVM
 import com.example.musicapp.views.authentication.signup.SignUpFragmentVM
+import com.google.firebase.auth.FirebaseAuth
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -45,7 +46,7 @@ val repoModule = module {
     }
 
     factory {
-        FirebaseRepo()
+        FirebaseRepo(get())
     }
 
     factory {
@@ -54,5 +55,11 @@ val repoModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build().create(WebService::class.java)
+    }
+}
+
+val firebaseModule = module{
+    single {
+        FirebaseAuth.getInstance()
     }
 }

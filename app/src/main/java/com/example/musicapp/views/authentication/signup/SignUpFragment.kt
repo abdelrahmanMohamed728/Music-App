@@ -33,36 +33,44 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         initListeners()
+
     }
 
     private fun initListeners() {
-        signUpBtn.setOnClickListener {
+        signUpbtn.setOnClickListener {
+            signUpPB.visibility = View.VISIBLE
             signUp()
         }
+
+
     }
 
     private fun signUp() {
-        viewModel?.signUp(emailET.text.toString(),usernameET.text.toString(),passwordET.text.toString(),this)
+        viewModel?.signUp(
+            emailET.text.toString(),
+            usernameET.text.toString(),
+            passwordET.text.toString(),
+            this
+        )
         viewModel?.successSignUpLD?.observe(this, Observer {
-            if (it){
+            signUpPB.visibility = View.INVISIBLE
+            if (it) {
                 goToLogIn(view!!)
-            }
-            else
-                Snackbar.make(view!!,R.string.invalid_sign_up,Snackbar.LENGTH_LONG).show()
+            } else
+                Snackbar.make(view!!, R.string.invalid_sign_up, Snackbar.LENGTH_LONG).show()
         })
     }
 
     private fun goToLogIn(view: View) {
         Navigation.findNavController(view)
             .navigate(
-                R.id.action_logInFragment_to_signUpFragment, null, NavOptions.Builder()
-                    .setPopUpTo(R.id.signUpFragment, false)
+                R.id.action_signUpFragment_to_logInFragment, null, NavOptions.Builder()
                     .build()
             )
     }
 
     private fun initViewModel() {
-       viewModel = GlobalContext.get().koin.get()
+        viewModel = GlobalContext.get().koin.get()
     }
 
     companion object {

@@ -63,6 +63,7 @@ class SongFragment : Fragment() {
 
     private fun initListeners() {
         initMusicCover()
+        songBackground.setOnClickListener {  }
     }
 
     private fun initMusicCover() {

@@ -42,7 +42,7 @@ class LogInFragment : Fragment() {
            logIn()
         }
 
-        signUpBtn.setOnClickListener {
+        noAccountBtn.setOnClickListener {
             openSignUpFrag(view!!)
         }
     }
