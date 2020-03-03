@@ -34,10 +34,10 @@ class SongFragment : Fragment() {
 
     private fun initData() {
         initImgs()
-        initTxts()
+        initTexts()
     }
 
-    private fun initTxts() {
+    private fun initTexts() {
         artistName.text = viewModel?.songLiveData?.value?.artist?.name
         songName.text = viewModel?.songLiveData?.value?.title
     }

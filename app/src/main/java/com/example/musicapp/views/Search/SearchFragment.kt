@@ -76,11 +76,6 @@ class SearchFragment : Fragment() ,SongFragments{
         searchRV.adapter = SearchAdapter
     }
 
-
-    companion object {
-        var viewModel: SearchFragmentVM? = null
-    }
-
     override fun goToSongFragment(index: Int) {
         var frag = SongFragment()
         var bundle = Bundle()
@@ -89,4 +84,14 @@ class SearchFragment : Fragment() ,SongFragments{
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.search_host,frag , tag)?.addToBackStack("")?.commit()
     }
+
+    companion object {
+        var viewModel: SearchFragmentVM? = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        searchRV.adapter = null
+    }
+
 }

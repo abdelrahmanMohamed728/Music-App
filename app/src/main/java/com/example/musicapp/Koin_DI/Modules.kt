@@ -12,6 +12,7 @@ import com.example.musicapp.views.Search.SearchFragmentVM
 import com.example.musicapp.views.Song.SongFragmentVM
 import com.example.musicapp.views.authentication.signup.SignUpFragmentVM
 import com.google.firebase.auth.FirebaseAuth
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -19,12 +20,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 val viewModelsModule = module {
-    factory { ArtistFragmentVM(get()) }
-    factory { LoginFragmentVM(get()) }
-    factory { SongFragmentVM() }
-    factory { HomeFragmentVM(get()) }
-    factory { SearchFragmentVM(get()) }
-    factory { SignUpFragmentVM(get()) }
+    viewModel { ArtistFragmentVM(get()) }
+    viewModel { LoginFragmentVM(get()) }
+    viewModel { SongFragmentVM() }
+    viewModel { HomeFragmentVM(get()) }
+    viewModel { SearchFragmentVM(get()) }
+    viewModel { SignUpFragmentVM(get()) }
 }
 
 
